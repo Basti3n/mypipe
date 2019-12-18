@@ -20,6 +20,10 @@ fn main() {
             .takes_value(true)
             )
         .get_matches();
+    if matches.value_of("in") == None || matches.value_of("out") == None {
+        println!("Argument empty");
+        return;
+    }
     let input_arg = matches.value_of("in").unwrap();
     let ouput_arg = matches.value_of("out").unwrap();
     let output_of_input = Command::new(input_arg.to_string())
